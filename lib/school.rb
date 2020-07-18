@@ -1,7 +1,7 @@
 require 'pry'
 class School
     attr_reader :name
-    attr_accessor :roster
+    attr_accessor :roster, :student
 
     def initialize(name)
         @name = name
@@ -9,28 +9,29 @@ class School
     end
 
     def add_student(student, grade) 
-        roster[grade] = []
+            # roster[grade] = []
+            # roster[grade] << student
+            # roster
+        if !roster[grade]
+            then roster[grade] = []
+        end
         roster[grade] << student
-        # roster << self
-        # roster 
-        # all_student = roster.merge(new)
-        # return all_student
+        return roster
     end
 
     def grade(grade)
         roster.map do |num|
-         num == roster[:grade]
-        return roster[:grade]
+            num[0] == grade
+        return roster[grade] 
+        end
     end
 
-    def sort
-        roster[:grade].sort
+    def sort 
+        new_roster = {}
+        roster.each do |x, y|
+            new_roster[x] = y.sort
+        end
+        return new_roster
     end
 
 end
-
-# school.add_student("AC Slater", 9)
-# school.add_student("Kelly Kapowski", 10)
-# school.add_student("Screech", 11)
-# school.roster
-
