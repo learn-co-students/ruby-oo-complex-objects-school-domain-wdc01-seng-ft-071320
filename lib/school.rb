@@ -17,7 +17,15 @@ class School
         # return all_student
     end
 
+    def grade(grade)
+        roster.map do |num|
+         num == roster[:grade]
+        return roster[:grade]
+    end
 
+    def sort
+        roster[:grade].sort
+    end
 
 end
 
